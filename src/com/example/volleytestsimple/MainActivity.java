@@ -39,9 +39,8 @@ public class MainActivity extends Activity {
 		final RequestQueue queue = Volley.newRequestQueue(this);
 
 		final StringBuilder output = new StringBuilder();
-		
+
 		ImageLoader mImageLoader;
-		
 
 		String url = "http://141.28.122.106:5984/fufloma/_all_docs";
 		JsonObjectRequest jsObjRequest = new JsonObjectRequest(
@@ -72,9 +71,54 @@ public class MainActivity extends Activity {
 													JSONObject response) {
 												// TODO Auto-generated method
 												// stub
-												output.append("Response => "
-														+ response.toString()
+												output.append("Response => \r\n"
+														+ "_id: "
+														+ response
+																.optString("_id")
+														+ "\r\n"
+														+ "_rev: "
+														+ response
+																.optString("_rev")
+														+ "\r\n"
+														+ "description: "
+														+ response
+																.optString("description")
+														+ "\r\n"
+														+ "location: "
+														+ response
+																.optString("location")
+														+ "\r\n"
+														+ "locLat: "
+														+ response
+																.optDouble("locLat")
+														+ "\r\n"
+														+ "locLon: "
+														+ response
+																.optDouble("locLon")
+														+ "\r\n"
+														+ "price: "
+														+ response
+																.optDouble("price")
+														+ "\r\n"
+														+ "sellerid: "
+														+ response
+																.optString("sellerId")
+														+ "\r\n"
+														+ "state: "
+														+ response
+																.optInt("state")
+														+ "\r\n"
+														+ "_attachments: "
+														+ response
+																.optJSONObject(
+																		"_attachments")
+																.names().opt(0)
+																.toString()
+
 														+ "\r\n\r\n");
+												findViewById(R.id.progressBar1)
+														.setVisibility(
+																View.GONE);
 												findViewById(R.id.progressBar1)
 														.setVisibility(
 																View.GONE);
@@ -114,7 +158,7 @@ public class MainActivity extends Activity {
 				});
 
 		queue.add(jsObjRequest);
-		
+
 	}
 
 	@Override
