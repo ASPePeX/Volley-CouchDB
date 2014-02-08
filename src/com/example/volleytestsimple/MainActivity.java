@@ -7,10 +7,8 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import android.app.Activity;
-import android.graphics.Bitmap;
 import android.os.Bundle;
 import android.util.Log;
-import android.util.LruCache;
 import android.view.Menu;
 import android.view.View;
 import android.widget.TextView;
@@ -19,7 +17,6 @@ import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
-import com.android.volley.toolbox.ImageLoader;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
 
@@ -40,9 +37,6 @@ public class MainActivity extends Activity {
 
 		final StringBuilder output = new StringBuilder();
 		
-		ImageLoader mImageLoader;
-		
-
 		String url = "http://141.28.122.106:5984/fufloma/_all_docs";
 		JsonObjectRequest jsObjRequest = new JsonObjectRequest(
 				Request.Method.GET, url, null,
